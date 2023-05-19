@@ -1,5 +1,7 @@
 # Pleaco
 
+[![Go](https://github.com/pleaco/pleaco/actions/workflows/go.yml/badge.svg)](https://github.com/pleaco/pleaco/actions/workflows/go.yml)
+
 Easy Container Platform.
 
 
