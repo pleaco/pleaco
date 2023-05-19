@@ -1,4 +1,4 @@
-package main
+package pleaco
 
 import (
 	"github.com/stretchr/testify/assert"
@@ -8,7 +8,7 @@ import (
 )
 
 func TestGetRunningContainersRoute(t *testing.T) {
-	router := setupRouter()
+	router := SetupRouter()
 
 	w := httptest.NewRecorder()
 	req, _ := http.NewRequest("GET", "/containers", nil)

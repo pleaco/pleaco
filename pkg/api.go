@@ -7,7 +7,7 @@ import (
 	"pleaco/types"
 )
 
-func setupRouter() *gin.Engine {
+func SetupRouter() *gin.Engine {
 	router := gin.Default()
 	router.GET("/containers", getRunningContainersAPI)
 	router.POST("/run", runContainerAPI)

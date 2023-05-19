@@ -5,6 +5,8 @@ type Container struct {
 	Tag     string `json:"tag"`
 	Status  string `json:"status"`
 	HasNode bool   `json:"hasNode"`
+	Name    string `json:"name"`
+	Id      string `json:"id"`
 }
 
 var Containers []Container

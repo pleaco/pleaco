@@ -2,7 +2,8 @@ package main
 
 import (
 	"flag"
-	pleaco "github.com/pleaco/pleaco"
+	log "github.com/sirupsen/logrus"
+	pleaco "pleaco/pkg"
 )
 
 func main() {
@@ -11,7 +12,10 @@ func main() {
 
 	flag.Parse()
 
-	go pleaco.runContainers()
-	router := pleaco.setupRouter()
-	router.Run(*apiAddr)
+	go pleaco.RunContainers()
+	router := pleaco.SetupRouter()
+	err := router.Run(*apiAddr)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
