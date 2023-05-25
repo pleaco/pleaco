@@ -8,8 +8,9 @@ import (
 	"testing"
 )
 
+var router = SetupRouter()
+
 func TestGetRunningContainersRoute(t *testing.T) {
-	router := SetupRouter()
 
 	w := httptest.NewRecorder()
 	req, _ := http.NewRequest("GET", "/containers", nil)
@@ -20,14 +21,13 @@ func TestGetRunningContainersRoute(t *testing.T) {
 }
 
 func TestRunContainersRoute(t *testing.T) {
-	router := SetupRouter()
 
 	w := httptest.NewRecorder()
-	jsonBody := []byte(`{"image": "hello, server!", "tag": "latest", "status": "running", "hasNode": "false"}`)
+	jsonBody := []byte(`{"image": "hello, server!", "tag": "latest", "status": "running", "hasNode": false}`)
 	bodyReader := bytes.NewReader(jsonBody)
 	req, _ := http.NewRequest("POST", "/run", bodyReader)
 	router.ServeHTTP(w, req)
 
-	// Test if we receive 200 statuscode
+	// Test if we receive 201 statuscode
 	assert.Equal(t, 201, w.Code)
 }

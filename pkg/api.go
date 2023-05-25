@@ -30,20 +30,23 @@ func runContainerAPI(c *gin.Context) {
 
 	var newContainer pleaco.Container
 
-	err := c.BindJSON(newContainer)
+	err := c.BindJSON(&newContainer)
 	if err != nil {
 		log.Error(err)
+		//c.JSON(http.StatusInternalServerError, "")
+		c.AbortWithStatus(http.StatusInternalServerError)
+		return
 	}
 
-	// Anything except "running" is unexpected here and we return a 405
+	// Anything except "running" is unexpected here, and we return a 405
 	if newContainer.Status != "running" {
 		log.Debug("Received unexpected status")
 		c.JSON(http.StatusMethodNotAllowed, "Only 'running' allowed as status")
+		return
 	}
 
 	// Return 201 and the container that was created
-	if newContainer.Status != "running" {
-		pleaco.Containers = append(pleaco.Containers)
-		c.IndentedJSON(http.StatusCreated, newContainer)
-	}
+	pleaco.Containers = append(pleaco.Containers)
+	c.IndentedJSON(http.StatusCreated, newContainer)
+
 }
