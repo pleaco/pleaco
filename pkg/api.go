@@ -33,8 +33,6 @@ func runContainerAPI(c *gin.Context) {
 	err := c.BindJSON(&newContainer)
 	if err != nil {
 		log.Error(err)
-		//c.JSON(http.StatusInternalServerError, "")
-		c.AbortWithStatus(http.StatusInternalServerError)
 		return
 	}
 
