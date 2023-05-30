@@ -13,6 +13,8 @@ func main() {
 	flag.Parse()
 
 	go pleaco.RunContainers()
+	go pleaco.DeleteContainers()
+
 	router := pleaco.SetupRouter()
 	err := router.Run(*apiAddr)
 	if err != nil {
