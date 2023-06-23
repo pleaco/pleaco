@@ -12,7 +12,7 @@ Build, Deploy, Secure, Measure.
 
 Pleaco is a simple minimal platform implementation. Deploy your code, get it scanned, expose it and be happy.
 
-No need for Kubernetes, not steep learning curve. Just run code.
+No need for Kubernetes, no steep learning curve. Just run code and get value.
 
 ## How does it work?
 
