@@ -3,7 +3,7 @@ module pleaco
 go 1.20
 
 require (
-	github.com/docker/docker v24.0.2+incompatible
+	github.com/docker/docker v24.0.5+incompatible
 	github.com/gin-gonic/gin v1.9.1
 	github.com/sirupsen/logrus v1.9.3
 	github.com/stretchr/testify v1.8.4
